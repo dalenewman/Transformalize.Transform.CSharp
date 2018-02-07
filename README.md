@@ -26,5 +26,5 @@ Use like this:
 This produces `SomethingWonderful 2`
 
 Note: This library is susceptible to a known memory leak associated with running 
-dyanamically loaded c# assemblies in the host's `AppDomain`.  If you use it in a 
+dynamically loaded c# assemblies in the host's `AppDomain`.  If you use it in a 
 long-running Transformalize service, set a `max-memory` in the root node (e.g. `500 mb`).  If the process exceeds the `max-memory`, it will exit with error.  Have your service restart automatically.  This *work-around* is acceptable when you can't afford the performance hit introduced by running c# in a remote `AppDomain`.
