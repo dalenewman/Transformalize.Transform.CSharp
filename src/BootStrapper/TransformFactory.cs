@@ -25,7 +25,7 @@ using Transformalize.Contracts;
 using Transformalize.Transforms;
 using Transformalize.Transforms.System;
 
-namespace UnitTests {
+namespace BootStrapper {
     public static class TransformFactory {
 
         public static IEnumerable<ITransform> GetTransforms(IComponentContext ctx, IContext context, IEnumerable<Field> fields) {

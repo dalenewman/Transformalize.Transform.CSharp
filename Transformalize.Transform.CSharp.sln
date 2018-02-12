@@ -10,11 +10,19 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C4563C88-9C80-4BD0-949E-AA64F111957E}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
-		Transformalize.Transform.CSharp.Autofac.nuspec = Transformalize.Transform.CSharp.Autofac.nuspec
-		Transformalize.Transform.CSharp.nuspec = Transformalize.Transform.CSharp.nuspec
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "src\UnitTests\UnitTests.csproj", "{058FAE31-0608-48F8-84E4-04C3398689C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmark", "src\Benchmark\Benchmark.csproj", "{EAC09C5E-C222-4745-97FA-798063261565}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{72D5419A-55D9-4D31-92F6-827F8CCB81A8}"
+	ProjectSection(SolutionItems) = preProject
+		nuget\Transformalize.Transform.CSharp.Autofac.nuspec = nuget\Transformalize.Transform.CSharp.Autofac.nuspec
+		nuget\Transformalize.Transform.CSharp.nuspec = nuget\Transformalize.Transform.CSharp.nuspec
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootStrapper", "src\BootStrapper\BootStrapper.csproj", "{4D7ACEA9-6E0A-4174-9551-894B0124357A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "src\UnitTests\UnitTests.csproj", "{4DCDC34D-E2E2-41B9-8290-A5588B50EBC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,13 +38,24 @@ Global
 		{CD3477B9-14E5-4EA3-90B0-CA9299BCAE73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD3477B9-14E5-4EA3-90B0-CA9299BCAE73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD3477B9-14E5-4EA3-90B0-CA9299BCAE73}.Release|Any CPU.Build.0 = Release|Any CPU
-		{058FAE31-0608-48F8-84E4-04C3398689C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{058FAE31-0608-48F8-84E4-04C3398689C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{058FAE31-0608-48F8-84E4-04C3398689C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{058FAE31-0608-48F8-84E4-04C3398689C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAC09C5E-C222-4745-97FA-798063261565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC09C5E-C222-4745-97FA-798063261565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC09C5E-C222-4745-97FA-798063261565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC09C5E-C222-4745-97FA-798063261565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D7ACEA9-6E0A-4174-9551-894B0124357A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D7ACEA9-6E0A-4174-9551-894B0124357A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D7ACEA9-6E0A-4174-9551-894B0124357A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D7ACEA9-6E0A-4174-9551-894B0124357A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DCDC34D-E2E2-41B9-8290-A5588B50EBC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DCDC34D-E2E2-41B9-8290-A5588B50EBC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DCDC34D-E2E2-41B9-8290-A5588B50EBC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DCDC34D-E2E2-41B9-8290-A5588B50EBC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{72D5419A-55D9-4D31-92F6-827F8CCB81A8} = {C4563C88-9C80-4BD0-949E-AA64F111957E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {960FC2FA-8CAD-47A3-8A4E-4173AE406E71}

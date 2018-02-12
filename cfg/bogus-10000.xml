@@ -1,0 +1,27 @@
+﻿<add name='TestProcess' read-only='false'>
+  <connections>
+    <add name='input' provider='bogus' seed='1' />
+  </connections>
+  <entities>
+    <add name='Contact' size='10000'>
+      <fields>
+        <add name='FirstName' />
+        <add name='LastName' />
+        <add name='Stars' type='byte' min='1' max='5' />
+        <add name='Reviewers' type='int' min='0' max='500' />
+      </fields>
+
+      <calculated-fields>
+        <add name='Score' type='int' t='cs(Stars * Reviewers)' />
+        <add name='FullName' t='cs(return FirstName + " " + LastName;)' />
+        <add name='Condition' t='cs(
+                if(Stars==5){{ 
+                    return "5 Star";
+                }} else {{ 
+                    return string.Empty;
+                }})' />
+      </calculated-fields>
+    </add>
+  </entities>
+
+</add>

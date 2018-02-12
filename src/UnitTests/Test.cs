@@ -18,9 +18,11 @@
 
 using System.Linq;
 using Autofac;
+using BootStrapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Transformalize.Configuration;
 using Transformalize.Contracts;
+using Transformalize.Providers.Console;
 
 namespace UnitTests {
 
@@ -60,7 +62,7 @@ namespace UnitTests {
 
 </add>";
             using (var outer = new ConfigurationContainer().CreateScope(xml)) {
-                using (var inner = new TestContainer().CreateScope(outer)) {
+                using (var inner = new TestContainer().CreateScope(outer, new ConsoleLogger(LogLevel.Debug))) {
 
                     var process = inner.Resolve<Process>();
                   

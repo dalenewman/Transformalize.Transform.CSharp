@@ -26,18 +26,16 @@ using Transformalize.Contracts;
 using Transformalize.Impl;
 using Transformalize.Nulls;
 using Transformalize.Provider.Internal;
-using Transformalize.Providers.Console;
+using Transformalize.Providers.Bogus.Autofac;
 using Transformalize.Transforms;
 using Transformalize.Transforms.CSharp.Autofac;
 using Transformalize.Transforms.System;
 using Process = Transformalize.Configuration.Process;
 
-namespace UnitTests {
+namespace BootStrapper {
     public class TestContainer {
 
-        public ILifetimeScope CreateScope(ILifetimeScope scope) {
-
-            var logger = new ConsoleLogger(LogLevel.Debug);
+        public ILifetimeScope CreateScope(ILifetimeScope scope, IPipelineLogger logger) {
 
             var process = scope.Resolve<Process>();
 
@@ -47,6 +45,7 @@ namespace UnitTests {
             builder.Register((ctx) => process).As<Process>();
             builder.RegisterInstance(logger).As<IPipelineLogger>().SingleInstance();
             builder.RegisterModule(new CSharpModule());
+            builder.RegisterModule(new BogusModule());
             RegisterTransform(builder, c => new HashcodeTransform(c), new[] { new OperationSignature("hashcode") });
 
             // Process Context
@@ -96,7 +95,7 @@ namespace UnitTests {
             }
 
             // Entity input
-            foreach (var entity in process.Entities) {
+            foreach (var entity in process.Entities.Where(e => process.Connections.First(c => c.Name == e.Connection).Provider == "internal")) {
 
                 builder.RegisterType<NullInputProvider>().Named<IInputProvider>(entity.Key);
 
@@ -234,8 +233,9 @@ namespace UnitTests {
                 return controller;
             }).As<IProcessController>();
 
+            var build = builder.Build();
 
-            return builder.Build().BeginLifetimeScope();
+            return build.BeginLifetimeScope();
 
         }
 

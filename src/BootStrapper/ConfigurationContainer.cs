@@ -16,18 +16,17 @@
 // limitations under the License.
 #endregion
 
-using System;
 using System.Collections.Generic;
 using Autofac;
+using Cfg.Net.Environment;
+using Cfg.Net.Reader;
 using Cfg.Net.Shorthand;
 using Transformalize;
 using Transformalize.Configuration;
-using Transformalize.Contracts;
-using Transformalize.Transforms;
 using Transformalize.Transforms.CSharp.Autofac;
 using Parameter = Cfg.Net.Shorthand.Parameter;
 
-namespace UnitTests {
+namespace BootStrapper {
     public class ConfigurationContainer {
 
         private readonly HashSet<string> _methods = new HashSet<string>();
@@ -42,7 +41,12 @@ namespace UnitTests {
             RegisterShortHand(new[] { new OperationSignature("hashcode") });
             builder.Register((c, p) => _shortHand).As<ShorthandRoot>().InstancePerLifetimeScope();
 
-            builder.Register(ctx => new Process(cfg, new ShorthandCustomizer(ctx.Resolve<ShorthandRoot>(), new[] { "fields", "calculated-fields" }, "t", "transforms", "method"))).As<Process>().InstancePerDependency();  // because it has state, if you run it again, it's not so good
+            builder.Register(ctx => {
+                var reader = new DefaultReader(new FileReader(), new WebReader());
+                var environment = new EnvironmentModifier(new PlaceHolderReplacer('@', '[', ']'), "environments", "environment", "name", "parameters", "name", "value");
+                var customizer = new ShorthandCustomizer(ctx.Resolve<ShorthandRoot>(), new[] { "fields", "calculated-fields" }, "t", "transforms", "method");
+                return new Process(cfg, reader, environment, customizer);
+            }).As<Process>().InstancePerDependency();  // because it has state, if you run it again, it's not so good
             return builder.Build().BeginLifetimeScope();
         }
 
