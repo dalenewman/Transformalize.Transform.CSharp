@@ -18,11 +18,13 @@
 
 using System.Linq;
 using Autofac;
-using BootStrapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Transformalize.Configuration;
+using Transformalize.Containers.Autofac;
 using Transformalize.Contracts;
+using Transformalize.Providers.Bogus.Autofac;
 using Transformalize.Providers.Console;
+using Transformalize.Transforms.CSharp.Autofac;
 
 namespace UnitTests {
 
@@ -33,8 +35,8 @@ namespace UnitTests {
         public void BogusTests() {
 
             
-            using (var outer = new ConfigurationContainer().CreateScope(@"files\bogus-100.xml")) {
-                using (var inner = new TestContainer().CreateScope(outer, new ConsoleLogger(LogLevel.Debug))) {
+            using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(@"files\bogus-100.xml")) {
+                using (var inner = new TestContainer(new BogusModule(), new CSharpModule()).CreateScope(outer, new ConsoleLogger(LogLevel.Debug))) {
 
                     var process = inner.Resolve<Process>();
                     var controller = inner.Resolve<IProcessController>();

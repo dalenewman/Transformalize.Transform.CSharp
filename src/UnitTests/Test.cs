@@ -18,11 +18,12 @@
 
 using System.Linq;
 using Autofac;
-using BootStrapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Transformalize.Configuration;
+using Transformalize.Containers.Autofac;
 using Transformalize.Contracts;
 using Transformalize.Providers.Console;
+using Transformalize.Transforms.CSharp.Autofac;
 
 namespace UnitTests {
 
@@ -32,7 +33,7 @@ namespace UnitTests {
         [TestMethod]
         public void BasicTests() {
 
-            var xml = $@"
+            const string xml = @"
 <add name='TestProcess' read-only='false'>
     <entities>
         <add name='TestData'>
@@ -61,11 +62,11 @@ namespace UnitTests {
     </entities>
 
 </add>";
-            using (var outer = new ConfigurationContainer().CreateScope(xml)) {
-                using (var inner = new TestContainer().CreateScope(outer, new ConsoleLogger(LogLevel.Debug))) {
+            using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(xml)) {
+                using (var inner = new TestContainer(new CSharpModule()).CreateScope(outer, new ConsoleLogger(LogLevel.Debug))) {
 
                     var process = inner.Resolve<Process>();
-                  
+
                     var controller = inner.Resolve<IProcessController>();
                     controller.Execute();
                     var rows = process.Entities.First().Rows;
@@ -83,9 +84,6 @@ namespace UnitTests {
                     Assert.AreEqual("It is not Two", rows[2]["if"]);
                 }
             }
-
-
-
         }
     }
 }

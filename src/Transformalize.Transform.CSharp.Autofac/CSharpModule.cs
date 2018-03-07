@@ -28,10 +28,7 @@ namespace Transformalize.Transforms.CSharp.Autofac {
             if (builder.Properties.ContainsKey("Process")) {
                 var process = (Process)builder.Properties["Process"];
                 if (process != null) {
-                    RegisterTransform(builder, c => {
-                        new CSharpHost(c).Start();
-                        return new CsharpTransform(c);
-                    }, signatures);
+                    RegisterTransform(builder, c => { new CSharpHost(c).Start(); return new CsharpTransform(c); }, signatures);
                 }
             }
 

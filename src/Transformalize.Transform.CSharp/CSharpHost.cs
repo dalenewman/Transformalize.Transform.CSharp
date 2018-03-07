@@ -19,6 +19,7 @@ using System;
 using System.CodeDom.Compiler;
 using System.Collections.Concurrent;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using Transformalize.Contracts;
 
@@ -52,8 +53,11 @@ namespace Transformalize.Transforms.CSharp {
 
             var codeProvider = new Microsoft.CSharp.CSharpCodeProvider();
             var parameters = new CompilerParameters {
-                GenerateInMemory = true,
-                GenerateExecutable = false
+                GenerateInMemory = !_context.Process.Schedule.Any(), // do not compile in memory if long running (scheduled) process
+                GenerateExecutable = false,
+                IncludeDebugInformation = false,
+                TreatWarningsAsErrors = false,
+                CompilerOptions = "/optimize"
             };
 
             parameters.ReferencedAssemblies.Add("System.dll");
