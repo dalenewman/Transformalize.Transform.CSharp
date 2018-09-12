@@ -45,8 +45,8 @@
     <Reference Include="BenchmarkDotNet.Toolchains.Roslyn, Version=0.10.12.0, Culture=neutral, PublicKeyToken=aa0ca2f9092cefc4, processorArchitecture=MSIL">
       <HintPath>..\..\packages\BenchmarkDotNet.Toolchains.Roslyn.0.10.12\lib\net46\BenchmarkDotNet.Toolchains.Roslyn.dll</HintPath>
     </Reference>
-    <Reference Include="Bogus, Version=22.0.5.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Bogus.22.0.5\lib\net40\Bogus.dll</HintPath>
+    <Reference Include="Bogus, Version=22.3.2.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Bogus.22.3.2\lib\net40\Bogus.dll</HintPath>
     </Reference>
     <Reference Include="Cfg.Net.Environment, Version=0.3.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Cfg-NET.Environment.0.3.2\lib\portable-net45+win8+wpa81+wp8\Cfg.Net.Environment.dll</HintPath>
@@ -57,8 +57,11 @@
     <Reference Include="Cfg.Net.Shorthand, Version=0.2.11.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Cfg-NET.Shorthand.0.2.11\lib\portable-net45+win8+wpa81+wp8\Cfg.Net.Shorthand.dll</HintPath>
     </Reference>
-    <Reference Include="CfgNet, Version=0.10.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Cfg-NET.0.10.2\lib\net452\CfgNet.dll</HintPath>
+    <Reference Include="CfgNet, Version=0.10.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Cfg-NET.0.10.3\lib\net452\CfgNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.1.50.4\lib\net451\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CodeAnalysis.Common.2.4.0\lib\netstandard1.3\Microsoft.CodeAnalysis.dll</HintPath>
@@ -165,17 +168,20 @@
     <Reference Include="System.Xml.XPath.XDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Xml.XPath.XDocument.4.3.0\lib\net46\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
-    <Reference Include="Transformalize, Version=0.3.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Transformalize.0.3.4-beta\lib\net452\Transformalize.dll</HintPath>
+    <Reference Include="Transformalize, Version=0.3.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Transformalize.0.3.6-beta\lib\net452\Transformalize.dll</HintPath>
     </Reference>
-    <Reference Include="Transformalize.Container.Autofac, Version=0.3.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Transformalize.Container.Autofac.0.3.6-beta\lib\net452\Transformalize.Container.Autofac.dll</HintPath>
+    <Reference Include="Transformalize.Container.Autofac, Version=0.3.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Transformalize.Container.Autofac.0.3.8-beta\lib\net452\Transformalize.Container.Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Transformalize.Provider.Ado, Version=0.3.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Transformalize.Provider.Ado.0.3.9-beta\lib\net452\Transformalize.Provider.Ado.dll</HintPath>
     </Reference>
     <Reference Include="Transformalize.Provider.Bogus, Version=0.3.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Transformalize.Provider.Bogus.0.3.4-beta\lib\net452\Transformalize.Provider.Bogus.dll</HintPath>
+      <HintPath>..\..\packages\Transformalize.Provider.Bogus.0.3.5-beta\lib\net452\Transformalize.Provider.Bogus.dll</HintPath>
     </Reference>
     <Reference Include="Transformalize.Provider.Bogus.Autofac, Version=0.3.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Transformalize.Provider.Bogus.Autofac.0.3.4-beta\lib\net452\Transformalize.Provider.Bogus.Autofac.dll</HintPath>
+      <HintPath>..\..\packages\Transformalize.Provider.Bogus.Autofac.0.3.5-beta\lib\net452\Transformalize.Provider.Bogus.Autofac.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +190,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Release\BenchmarkDotNet.Artifacts\results\Benchmark.Benchmarks-report-github.md" />
+    <None Include="bin\Release\BenchmarkDotNet.Artifacts\results\Benchmark.Benchmarks-report.csv" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +199,7 @@
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Release\BenchmarkDotNet.Artifacts\results\Benchmark.Benchmarks-report.html" />
     <Content Include="files\bogus-csharp.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

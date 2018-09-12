@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Transformalize.Transform.CSharp.Autofac</id>
-    <version>0.3.4-beta</version>
+    <version>0.3.6-beta</version>
     <title>Transformalize Transform using CSharp Autofac Module</title>
     <authors>Dale Newman</authors>
     <owners>Dale Newman</owners>
@@ -16,7 +16,7 @@
     <dependencies>
       <group targetFramework="net452">
         <dependency id="Autofac" version="4.6.2" />
-        <dependency id="Transformalize.Transform.CSharp" version="0.3.4-beta" />
+        <dependency id="Transformalize.Transform.CSharp" version="0.3.6-beta" />
       </group>
     </dependencies>
   </metadata>

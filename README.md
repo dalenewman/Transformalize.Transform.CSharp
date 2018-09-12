@@ -1,7 +1,7 @@
 
 ### Overview
 
-This adds C# transform to Transformalize.  It is a plug-in compatible with Transformalize 0.3.3-beta.
+This adds C# transform to Transformalize.  It is a plug-in compatible with Transformalize 0.3.6-beta.
 
 Build the Autofac project and put it's output into Transformalize's *plugins* folder.
 
@@ -38,20 +38,20 @@ long-running Transformalize service, set a `max-memory` in the root node (e.g. `
 
 ``` ini
 
-BenchmarkDotNet=v0.10.12, OS=Windows 10 Redstone 3 [1709, Fall Creators Update] (10.0.16299.125)
+BenchmarkDotNet=v0.10.12, OS=Windows 10 Redstone 3 [1709, Fall Creators Update] (10.0.16299.251)
 Intel Core i7-7700HQ CPU 2.80GHz (Kaby Lake), 1 CPU, 8 logical cores and 4 physical cores
-Frequency=2742192 Hz, Resolution=364.6718 ns, Timer=TSC
-  [Host]       : .NET Framework 4.6.2 (CLR 4.0.30319.42000), 32bit LegacyJIT-v4.7.2600.0
-  LegacyJitX64 : .NET Framework 4.6.2 (CLR 4.0.30319.42000), 64bit LegacyJIT/clrjit-v4.7.2600.0;compatjit-v4.7.2600.0
-  LegacyJitX86 : .NET Framework 4.6.2 (CLR 4.0.30319.42000), 32bit LegacyJIT-v4.7.2600.0
+Frequency=2742188 Hz, Resolution=364.6723 ns, Timer=TSC
+  [Host]       : .NET Framework 4.6.2 (CLR 4.0.30319.42000), 32bit LegacyJIT-v4.7.2633.0  [AttachedDebugger]
+  LegacyJitX64 : .NET Framework 4.6.2 (CLR 4.0.30319.42000), 64bit LegacyJIT/clrjit-v4.7.2633.0;compatjit-v4.7.2633.0
+  LegacyJitX86 : .NET Framework 4.6.2 (CLR 4.0.30319.42000), 32bit LegacyJIT-v4.7.2633.0
 
 Jit=LegacyJit  Runtime=Clr  
 
 ```
-|                                   Method |          Job | Platform |     Mean |     Error |    StdDev | Scaled |
-|----------------------------------------- |------------- |--------- |---------:|----------:|----------:|-------:|
-|                          &#39;500 test rows&#39; | LegacyJitX64 |      X64 | 65.10 ms | 0.3983 ms | 0.3726 ms |   1.00 |
-| &#39;500 test rows with 3 csharp transforms&#39; | LegacyJitX64 |      X64 | 66.27 ms | 0.4447 ms | 0.3942 ms |   1.02 |
-|                                          |              |          |          |           |           |        |
-|                          &#39;500 test rows&#39; | LegacyJitX86 |      X86 | 69.72 ms | 0.4177 ms | 0.3488 ms |   1.00 |
-| &#39;500 test rows with 3 csharp transforms&#39; | LegacyJitX86 |      X86 | 70.07 ms | 0.4103 ms | 0.3838 ms |   1.01 |
+|                                   Method |          Job | Platform |     Mean |     Error |    StdDev | Scaled | ScaledSD |
+|----------------------------------------- |------------- |--------- |---------:|----------:|----------:|-------:|---------:|
+|                          &#39;500 test rows&#39; | LegacyJitX64 |      X64 | 57.04 ms | 0.8820 ms | 0.8250 ms |   1.00 |     0.00 |
+| &#39;500 test rows with 3 csharp transforms&#39; | LegacyJitX64 |      X64 | 58.41 ms | 1.0703 ms | 0.9488 ms |   1.02 |     0.02 |
+|                                          |              |          |          |           |           |        |          |
+|                          &#39;500 test rows&#39; | LegacyJitX86 |      X86 | 61.24 ms | 1.1669 ms | 1.2486 ms |   1.00 |     0.00 |
+| &#39;500 test rows with 3 csharp transforms&#39; | LegacyJitX86 |      X86 | 57.75 ms | 0.9459 ms | 0.8848 ms |   0.94 |     0.02 |
