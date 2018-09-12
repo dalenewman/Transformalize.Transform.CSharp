@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using Transformalize.Contracts;
 using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Attributes.Jobs;
 using BenchmarkDotNet.Running;
 using Transformalize.Containers.Autofac;
 using Transformalize.Logging;
@@ -10,13 +9,12 @@ using Transformalize.Transforms.CSharp.Autofac;
 
 namespace Benchmark {
 
-
-    [LegacyJitX64Job, LegacyJitX86Job]
+    [LegacyJitX64Job]
     public class Benchmarks {
 
-        [Benchmark(Baseline = true, Description = "500 test rows")]
+        [Benchmark(Baseline = true, Description = "5000 rows")]
         public void TestRows() {
-            using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(@"files\bogus.xml?Size=500")) {
+            using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(@"files\bogus.xml?Size=5000")) {
                 using (var inner = new TestContainer(new BogusModule(), new CSharpModule()).CreateScope(outer, new NullLogger())) {
                     var controller = inner.Resolve<IProcessController>();
                     controller.Execute();
@@ -24,9 +22,9 @@ namespace Benchmark {
             }
         }
 
-        [Benchmark(Baseline = false, Description = "500 test rows with 3 csharp transforms")]
+        [Benchmark(Baseline = false, Description = "5000 rows 1 csharp")]
         public void CSharpRows() {
-            using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(@"files\bogus-csharp.xml?Size=500")) {
+            using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(@"files\bogus-csharp.xml?Size=5000")) {
                 using (var inner = new TestContainer(new BogusModule(), new CSharpModule()).CreateScope(outer, new NullLogger())) {
                     var controller = inner.Resolve<IProcessController>();
                     controller.Execute();

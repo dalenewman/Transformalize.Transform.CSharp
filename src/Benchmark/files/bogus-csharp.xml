@@ -16,13 +16,6 @@
 
       <calculated-fields>
         <add name='Score' type='int' t='cs(Stars * Reviewers)' />
-        <add name='FullName' t='cs(return FirstName + " " + LastName;)' />
-        <add name='Condition' t='cs(
-                if(Stars==5){{ 
-                    return "5 Star";
-                }} else {{ 
-                    return string.Empty;
-                }})' />
       </calculated-fields>
     </add>
   </entities>

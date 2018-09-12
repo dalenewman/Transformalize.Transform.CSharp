@@ -38,20 +38,17 @@ long-running Transformalize service, set a `max-memory` in the root node (e.g. `
 
 ``` ini
 
-BenchmarkDotNet=v0.10.12, OS=Windows 10 Redstone 3 [1709, Fall Creators Update] (10.0.16299.251)
-Intel Core i7-7700HQ CPU 2.80GHz (Kaby Lake), 1 CPU, 8 logical cores and 4 physical cores
+BenchmarkDotNet=v0.11.1, OS=Windows 10.0.16299.251 (1709/FallCreatorsUpdate/Redstone3)
+Intel Core i7-7700HQ CPU 2.80GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical cores
 Frequency=2742188 Hz, Resolution=364.6723 ns, Timer=TSC
-  [Host]       : .NET Framework 4.6.2 (CLR 4.0.30319.42000), 32bit LegacyJIT-v4.7.2633.0  [AttachedDebugger]
-  LegacyJitX64 : .NET Framework 4.6.2 (CLR 4.0.30319.42000), 64bit LegacyJIT/clrjit-v4.7.2633.0;compatjit-v4.7.2633.0
-  LegacyJitX86 : .NET Framework 4.6.2 (CLR 4.0.30319.42000), 32bit LegacyJIT-v4.7.2633.0
+  [Host]       : .NET Framework 4.7.1 (CLR 4.0.30319.42000), 32bit LegacyJIT-v4.7.2633.0
+  LegacyJitX64 : .NET Framework 4.7.1 (CLR 4.0.30319.42000), 64bit LegacyJIT/clrjit-v4.7.2633.0;compatjit-v4.7.2633.0
 
-Jit=LegacyJit  Runtime=Clr  
+Job=LegacyJitX64  Jit=LegacyJit  Platform=X64  
+Runtime=Clr  
 
 ```
-|                                   Method |          Job | Platform |     Mean |     Error |    StdDev | Scaled | ScaledSD |
-|----------------------------------------- |------------- |--------- |---------:|----------:|----------:|-------:|---------:|
-|                          &#39;500 test rows&#39; | LegacyJitX64 |      X64 | 57.04 ms | 0.8820 ms | 0.8250 ms |   1.00 |     0.00 |
-| &#39;500 test rows with 3 csharp transforms&#39; | LegacyJitX64 |      X64 | 58.41 ms | 1.0703 ms | 0.9488 ms |   1.02 |     0.02 |
-|                                          |              |          |          |           |           |        |          |
-|                          &#39;500 test rows&#39; | LegacyJitX86 |      X86 | 61.24 ms | 1.1669 ms | 1.2486 ms |   1.00 |     0.00 |
-| &#39;500 test rows with 3 csharp transforms&#39; | LegacyJitX86 |      X86 | 57.75 ms | 0.9459 ms | 0.8848 ms |   0.94 |     0.02 |
+|               Method |     Mean |    Error |   StdDev | Scaled | ScaledSD |
+|--------------------- |---------:|---------:|---------:|-------:|---------:|
+|          &#39;5000 rows&#39; | 471.4 ms | 9.299 ms | 9.550 ms |   1.00 |     0.00 |
+| &#39;5000 rows 1 csharp&#39; | 470.6 ms | 6.429 ms | 6.013 ms |   1.00 |     0.02 |
