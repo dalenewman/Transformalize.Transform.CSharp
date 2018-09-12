@@ -48,7 +48,7 @@ Job=LegacyJitX64  Jit=LegacyJit  Platform=X64
 Runtime=Clr  
 
 ```
-|               Method |     Mean |    Error |   StdDev | Scaled | ScaledSD |
-|--------------------- |---------:|---------:|---------:|-------:|---------:|
-|          &#39;5000 rows&#39; | 471.4 ms | 9.299 ms | 9.550 ms |   1.00 |     0.00 |
-| &#39;5000 rows 1 csharp&#39; | 470.6 ms | 6.429 ms | 6.013 ms |   1.00 |     0.02 |
+|               Method |     Mean |    Error |   StdDev | Scaled |
+|--------------------- |---------:|---------:|---------:|-------:|
+|          &#39;5000 rows&#39; | 469.1 ms | 4.605 ms | 4.307 ms |   1.00 |
+| &#39;5000 rows 1 csharp&#39; | 465.4 ms | 6.057 ms | 5.666 ms |   0.99 |
