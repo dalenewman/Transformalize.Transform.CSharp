@@ -30,9 +30,10 @@ This produces `SomethingWonderful 2`
 
 ### Warning
 
-Note: This library is susceptible to a known memory leak associated with running 
+Note: This transform is fast with very little start-up cost, **but** it is susceptible to a known memory leak associated with running 
 dynamically loaded c# assemblies in the host's `AppDomain`.  If you use it in a 
-long-running Transformalize service, set a `max-memory` in the root node (e.g. `500 mb`).  If the process exceeds the `max-memory`, it will exit with error.  Have your service restart automatically.  This *work-around* is acceptable when you can't afford the performance hit introduced by running c# in a remote `AppDomain`.
+long-running Transformalize service, set a `max-memory` in the root node (e.g. `500 mb`).  If the process exceeds the `max-memory`, it will exit with error. 
+Have your service restart automatically.  This *work-around* is acceptable when you can't afford the performance hit introduced by running c# in a remote `AppDomain` as provided by the [cs-script](https://github.com/dalenewman/Transformalize.Transform.CsScript) plugin.
 
 ### Benchmark
 
@@ -40,7 +41,7 @@ long-running Transformalize service, set a `max-memory` in the root node (e.g. `
 
 BenchmarkDotNet=v0.11.1, OS=Windows 10.0.16299.251 (1709/FallCreatorsUpdate/Redstone3)
 Intel Core i7-7700HQ CPU 2.80GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical cores
-Frequency=2742188 Hz, Resolution=364.6723 ns, Timer=TSC
+Frequency=2742189 Hz, Resolution=364.6722 ns, Timer=TSC
   [Host]       : .NET Framework 4.7.1 (CLR 4.0.30319.42000), 32bit LegacyJIT-v4.7.2633.0
   LegacyJitX64 : .NET Framework 4.7.1 (CLR 4.0.30319.42000), 64bit LegacyJIT/clrjit-v4.7.2633.0;compatjit-v4.7.2633.0
 
@@ -48,7 +49,7 @@ Job=LegacyJitX64  Jit=LegacyJit  Platform=X64
 Runtime=Clr  
 
 ```
-|               Method |     Mean |    Error |   StdDev | Scaled |
-|--------------------- |---------:|---------:|---------:|-------:|
-|          &#39;5000 rows&#39; | 469.1 ms | 4.605 ms | 4.307 ms |   1.00 |
-| &#39;5000 rows 1 csharp&#39; | 465.4 ms | 6.057 ms | 5.666 ms |   0.99 |
+|               Method |     Mean |    Error |   StdDev | Scaled | ScaledSD |
+|--------------------- |---------:|---------:|---------:|-------:|---------:|
+|          &#39;5000 rows&#39; | 514.1 ms | 10.26 ms | 10.98 ms |   1.00 |     0.00 |
+| &#39;5000 rows 1 csharp&#39; | 527.1 ms | 10.24 ms | 11.79 ms |   1.03 |     0.03 |
