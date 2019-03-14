@@ -1,4 +1,4 @@
-﻿<add name='TestProcess' read-only='false'>
+﻿<add name='bogus' read-only='false'>
   <parameters>
     <add name='Size' type='int' value='1' />
   </parameters>

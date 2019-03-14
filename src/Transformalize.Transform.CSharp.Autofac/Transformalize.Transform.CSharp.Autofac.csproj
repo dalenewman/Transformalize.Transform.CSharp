@@ -21,15 +21,17 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
+    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
@@ -41,18 +43,14 @@
     <Reference Include="CfgNet, Version=0.10.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Cfg-NET.0.10.4\lib\net462\CfgNet.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Transformalize, Version=0.3.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Transformalize.0.3.6-beta\lib\net452\Transformalize.dll</HintPath>
+    <Reference Include="Transformalize, Version=0.3.34.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Transformalize.0.3.34-beta\lib\net462\Transformalize.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -70,8 +68,14 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>set f="$(SolutionDir)..\Transformalize\Pipeline.Command\bin\$(ConfigurationName)\plugins"
+    <PostBuildEvent>set f="$(SolutionDir)..\Transformalize\Pipeline.Command\plugins"
 
-if exist %25f%25 copy /Y "$(TargetDir)*.*" "%25f%25"</PostBuildEvent>
+if exist %25f%25 copy /Y "$(TargetDir)Transformalize.Transform.CSharp.dll" "%25f%25"
+if exist %25f%25 copy /Y "$(TargetDir)Transformalize.Transform.CSharp.pdb" "%25f%25"
+if exist %25f%25 copy /Y "$(TargetDir)Transformalize.Transform.CSharp.Autofac.dll" "%25f%25"
+if exist %25f%25 copy /Y "$(TargetDir)Transformalize.Transform.CSharp.Autofac.pdb" "%25f%25"
+
+
+</PostBuildEvent>
   </PropertyGroup>
 </Project>

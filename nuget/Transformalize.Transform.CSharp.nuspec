@@ -2,20 +2,19 @@
 <package>
   <metadata>
     <id>Transformalize.Transform.CSharp</id>
-    <version>0.3.6-beta</version>
+    <version>0.3.33-beta</version>
     <title>Transformalize Transform using C#</title>
     <authors>Dale Newman</authors>
     <owners>Dale Newman</owners>
-    <licenseUrl>https://github.com/dalenewman/Transformalize.Transform.CSharp/blob/master/LICENSE.md</licenseUrl>
     <projectUrl>https://github.com/dalenewman/Transformalize.Transform.CSharp</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Transformalize Transform using C#</description>
-    <releaseNotes>initial release</releaseNotes>
-    <copyright>Copyright 2018</copyright>
+    <releaseNotes>compile to disk the first run, and try to reuse assembly the the second time</releaseNotes>
+    <copyright>Copyright 2018-2019</copyright>
     <tags>etl</tags>
     <dependencies>
       <group targetFramework="net452">
-        <dependency id="Transformalize" version="0.3.6-beta" />
+        <dependency id="Transformalize" version="0.3.34-beta" />
       </group>
     </dependencies>
   </metadata>

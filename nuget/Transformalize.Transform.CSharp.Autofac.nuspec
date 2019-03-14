@@ -2,21 +2,20 @@
 <package>
   <metadata>
     <id>Transformalize.Transform.CSharp.Autofac</id>
-    <version>0.3.6-beta</version>
+    <version>0.3.33-beta</version>
     <title>Transformalize Transform using CSharp Autofac Module</title>
     <authors>Dale Newman</authors>
     <owners>Dale Newman</owners>
-    <licenseUrl>https://github.com/dalenewman/Transformalize.Transform.CSharp/blob/master/LICENSE.md</licenseUrl>
     <projectUrl>https://github.com/dalenewman/Transformalize.Transform.CSharp</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Transformalize Transform using CSharp Autofac Module</description>
-    <releaseNotes>initial release</releaseNotes>
-    <copyright>Copyright 2018</copyright>
+    <releaseNotes>compile to disk the first run, and try to reuse assembly the the second time</releaseNotes>
+    <copyright>Copyright 2018-2019</copyright>
     <tags>etl</tags>
     <dependencies>
       <group targetFramework="net452">
         <dependency id="Autofac" version="4.6.2" />
-        <dependency id="Transformalize.Transform.CSharp" version="0.3.6-beta" />
+        <dependency id="Transformalize.Transform.CSharp" version="0.3.33-beta" />
       </group>
     </dependencies>
   </metadata>
