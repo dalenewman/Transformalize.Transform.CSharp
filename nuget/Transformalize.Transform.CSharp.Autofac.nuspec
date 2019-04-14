@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Transformalize.Transform.CSharp.Autofac</id>
-    <version>0.3.33-beta</version>
+    <version>0.5.0-beta</version>
     <title>Transformalize Transform using CSharp Autofac Module</title>
     <authors>Dale Newman</authors>
     <owners>Dale Newman</owners>
@@ -13,13 +13,13 @@
     <copyright>Copyright 2018-2019</copyright>
     <tags>etl</tags>
     <dependencies>
-      <group targetFramework="net452">
+      <group targetFramework="net462">
         <dependency id="Autofac" version="4.6.2" />
-        <dependency id="Transformalize.Transform.CSharp" version="0.3.33-beta" />
+        <dependency id="Transformalize.Transform.CSharp" version="0.5.0-beta" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\src\Transformalize.Transform.CSharp.Autofac\bin\Release\Transformalize.Transform.CSharp.Autofac.dll" target="lib\net452\Transformalize.Transform.CSharp.Autofac.dll" />
+    <file src="..\src\Transformalize.Transform.CSharp.Autofac\bin\Release\Transformalize.Transform.CSharp.Autofac.dll" target="lib\net462\Transformalize.Transform.CSharp.Autofac.dll" />
   </files>
 </package>

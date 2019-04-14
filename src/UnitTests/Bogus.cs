@@ -28,28 +28,29 @@ using Transformalize.Transforms.CSharp.Autofac;
 
 namespace UnitTests {
 
-    [TestClass]
-    public class Bogus {
+   [TestClass]
+   public class Bogus {
 
-        [TestMethod]
-        public void BogusTests() {
+      [TestMethod]
+      public void BogusTests() {
 
-            
-            using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(@"files\bogus-100.xml")) {
-                using (var inner = new TestContainer(new BogusModule(), new CSharpModule()).CreateScope(outer, new ConsoleLogger(LogLevel.Debug))) {
+         var logger = new ConsoleLogger(LogLevel.Debug);
 
-                    var process = inner.Resolve<Process>();
-                    var controller = inner.Resolve<IProcessController>();
+         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(@"files\bogus-100.xml", logger)) {
+            var process = outer.Resolve<Process>();
+            using (var inner = new Container(new BogusModule(), new CSharpModule()).CreateScope(process, logger)) {
 
-                    controller.Execute();
-                    var rows = process.Entities.First().Rows;
+               var controller = inner.Resolve<IProcessController>();
 
-                    Assert.AreEqual(100, rows.Count);
-                }
+               controller.Execute();
+               var rows = process.Entities.First().Rows;
+
+               Assert.AreEqual(100, rows.Count);
             }
+         }
 
 
 
-        }
-    }
+      }
+   }
 }

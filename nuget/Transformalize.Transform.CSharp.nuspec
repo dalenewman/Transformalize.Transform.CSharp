@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Transformalize.Transform.CSharp</id>
-    <version>0.3.33-beta</version>
+    <version>0.5.0-beta</version>
     <title>Transformalize Transform using C#</title>
     <authors>Dale Newman</authors>
     <owners>Dale Newman</owners>
@@ -13,12 +13,12 @@
     <copyright>Copyright 2018-2019</copyright>
     <tags>etl</tags>
     <dependencies>
-      <group targetFramework="net452">
-        <dependency id="Transformalize" version="0.3.34-beta" />
+      <group targetFramework="net462">
+        <dependency id="Transformalize" version="0.5.1-beta" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\src\Transformalize.Transform.CSharp\bin\Release\Transformalize.Transform.CSharp.dll" target="lib\net452\Transformalize.Transform.CSharp.dll" />
+    <file src="..\src\Transformalize.Transform.CSharp\bin\Release\Transformalize.Transform.CSharp.dll" target="lib\net462\Transformalize.Transform.CSharp.dll" />
   </files>
 </package>
