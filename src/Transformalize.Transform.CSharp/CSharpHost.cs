@@ -55,10 +55,12 @@ namespace Transformalize.Transforms.CSharp {
          var code = _codeWriter.Write(_className);
          var executingAssembly = Assembly.GetExecutingAssembly();
 
-         var outputAssembly = Path.Combine(GetTemporaryFolder(_context.Process.Name), _className + code.GetHashCode() + "-" + executingAssembly.GetName().Version + ".dll");
+         var libraryName = _className + code.GetHashCode() + "-" + executingAssembly.GetName().Version + ".dll";
+         var outputAssembly = Path.Combine(GetTemporaryFolder(_context.Process.Name), libraryName);
 
          if (File.Exists(outputAssembly)) {
-            _context.Info($"Loading previously compiled code {outputAssembly}");
+            _context.Debug(() => $"Loading previously compiled code {outputAssembly}");
+            _context.Info($"Loading previously compiled code {libraryName}");
             var assembly = Assembly.LoadFile(outputAssembly);
             if (Cache.TryAdd(_context.Process.Name, new ConcurrentDictionary<string, UserCodeInvoker>())) {
                foreach (var method in assembly.GetType(_className).GetMethods(BindingFlags.Static | BindingFlags.Public)) {

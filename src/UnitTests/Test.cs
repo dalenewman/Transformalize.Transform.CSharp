@@ -62,7 +62,7 @@ namespace UnitTests {
     </entities>
 
 </add>";
-         var logger = new ConsoleLogger(LogLevel.Debug);
+         var logger = new ConsoleLogger(LogLevel.Info);
          using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(xml, logger)) {
             var process = outer.Resolve<Process>();
             using (var inner = new Container(new CSharpModule()).CreateScope(process, logger)) {
