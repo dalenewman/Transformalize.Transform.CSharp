@@ -36,31 +36,22 @@
     <Reference Include="CfgNet, Version=0.11.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Cfg-NET.0.11.0\lib\net462\CfgNet.dll</HintPath>
     </Reference>
-    <Reference Include="DateMath, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DateMath.1.0.0\lib\net45\DateMath.dll</HintPath>
+    <Reference Include="DateMath, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DateMath.1.1.0\lib\net462\DateMath.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="Transformalize, Version=0.6.20.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Transformalize.0.6.20-beta\lib\net462\Transformalize.dll</HintPath>
+    <Reference Include="Transformalize, Version=0.6.28.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Transformalize.0.6.28-beta\lib\net462\Transformalize.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CSharpCodeWriter.cs" />
-    <Compile Include="CSharpHost.cs" />
-    <Compile Include="CsharpTransform.cs" />
-    <Compile Include="DynamicMethodHelper.cs" />
-    <Compile Include="ILReader\FormatProvider.cs" />
-    <Compile Include="ILReader\ILInstruction.cs" />
-    <Compile Include="ILReader\ILProvider.cs" />
-    <Compile Include="ILReader\ILReader.cs" />
-    <Compile Include="ILReader\ReadableILStringVisitor.cs" />
-    <Compile Include="ILReader\TokenResolver.cs" />
-    <Compile Include="KeyWords.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <Import Project="..\Transformalize.Transform.CSharp.Shared\Transformalize.Transform.CSharp.Shared.projitems" Label="Shared" />
+  <Import Project="..\DynamicMethodHelper.Shared\DynamicMethodHelper.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

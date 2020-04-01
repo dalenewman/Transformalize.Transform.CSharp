@@ -1,4 +1,4 @@
-﻿<add name='TestProcess' read-only='false'>
+﻿<add name='TestProcessBogus' read-only='false'>
   <connections>
     <add name='input' provider='bogus' seed='1' />
   </connections>

@@ -9,14 +9,14 @@ using Transformalize.Transforms.CSharp.Autofac;
 
 namespace Benchmark {
 
-   [LegacyJitX64Job]
+   [LegacyJitX64Job, MemoryDiagnoser]
    public class Benchmarks {
 
       public IPipelineLogger Logger = new Transformalize.Logging.NLog.NLogPipelineLogger("test");
 
-      [Benchmark(Baseline = true, Description = "7777 rows")]
+      [Benchmark(Baseline = true, Description = "10000 rows")]
       public void TestRows() {
-         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(@"files\bogus.xml?Size=7777", Logger)) {
+         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(@"files\bogus.xml?Size=10000", Logger)) {
             var process = outer.Resolve<Process>();
             using (var inner = new Container(new BogusModule(), new CSharpModule()).CreateScope(process, Logger)) {
                var controller = inner.Resolve<IProcessController>();
@@ -25,9 +25,9 @@ namespace Benchmark {
          }
       }
 
-      [Benchmark(Baseline = false, Description = "7777 rows 1 csharp in memory")]
+      [Benchmark(Baseline = false, Description = "10000 rows 1 csharp in memory")]
       public void CSharpRowsCompileInMemory() {
-         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(@"files\bogus-csharp.xml?Size=7777", Logger)) {
+         using (var outer = new ConfigurationContainer(new CSharpModule()).CreateScope(@"files\bogus-csharp.xml?Size=10000", Logger)) {
             var process = outer.Resolve<Process>();
             using (var inner = new Container(new BogusModule(), new CSharpModule()).CreateScope(process, Logger)) {
                var controller = inner.Resolve<IProcessController>();

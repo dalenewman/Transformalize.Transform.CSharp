@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Transformalize.Transforms.CSharp.Autofac</RootNamespace>
+    <AssemblyName>Transformalize.Transform.CSharp.Autofac</AssemblyName>
+    <Version>0.6.28</Version>
+  </PropertyGroup>
+
+  <Import Project="..\Transformalize.Transform.CSharp.Autofac.Shared\Transformalize.Transform.CSharp.Autofac.Shared.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.9.4" />
+    <PackageReference Include="Cfg-NET.Shorthand" Version="0.2.12" />
+    <PackageReference Include="Transformalize" Version="0.6.28-beta" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Transformalize.Transform.CSharp.Standard.20\Transformalize.Transform.CSharp.Standard.20.csproj" />
+  </ItemGroup>
+
+</Project>

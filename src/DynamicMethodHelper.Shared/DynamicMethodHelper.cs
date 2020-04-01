@@ -187,7 +187,7 @@ namespace Transformalize.Transforms.CSharp {
             array[pos++] = (byte)(value >> 24);
         }
 
-        static Type[] GetParameterTypes(MethodInfo method) {
+        public static Type[] GetParameterTypes(MethodInfo method) {
             ParameterInfo[] pia = method.GetParameters();
             Type[] types = new Type[pia.Length];
 

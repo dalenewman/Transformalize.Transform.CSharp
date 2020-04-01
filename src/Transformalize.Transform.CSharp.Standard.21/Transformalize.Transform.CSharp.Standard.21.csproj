@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>Transformalize.Transforms.CSharp</RootNamespace>
+    <AssemblyName>Transformalize.Transform.CSharp</AssemblyName>
+    <Version>0.6.28</Version>
+  </PropertyGroup>
+
+  <Import Project="..\Transformalize.Transform.CSharp.Shared\Transformalize.Transform.CSharp.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\DynamicMethodHelper.Shared\DynamicMethodHelper.Shared.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <PackageReference Include="System.CodeDom" Version="4.7.0" />
+    <PackageReference Include="Transformalize" Version="0.6.28-beta" />
+  </ItemGroup>
+
+</Project>

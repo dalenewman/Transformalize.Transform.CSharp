@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transformalize.Transform.CSharp", "src\Transformalize.Transform.CSharp\Transformalize.Transform.CSharp.csproj", "{4ED1E259-756A-40B8-9800-F563B59E0206}"
 EndProject
@@ -23,9 +23,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{72D5419A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "src\UnitTests\UnitTests.csproj", "{4DCDC34D-E2E2-41B9-8290-A5588B50EBC8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transform", "Transform", "{84E47074-65B9-45D5-8243-1DB21052969D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transform.Autofac", "Transform.Autofac", "{37E76E00-8B60-42FC-BDCB-1D5AF6427359}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Transformalize.Transform.CSharp.Shared", "src\Transformalize.Transform.CSharp.Shared\Transformalize.Transform.CSharp.Shared.shproj", "{BD5A1629-156C-4616-9FF7-9A2347DB6B49}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transformalize.Transform.CSharp.Standard.21", "src\Transformalize.Transform.CSharp.Standard.21\Transformalize.Transform.CSharp.Standard.21.csproj", "{BF304CD0-4AD3-4E6D-B2EA-8B1057097481}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transformalize.Transform.CSharp.Standard.20", "src\Transformalize.Transform.CSharp.Standard.20\Transformalize.Transform.CSharp.Standard.20.csproj", "{F8A1D236-618F-49AF-8C98-E31EAD7C260F}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "DynamicMethodHelper.Shared", "src\DynamicMethodHelper.Shared\DynamicMethodHelper.Shared.shproj", "{D05B1A34-2DBC-44E0-914A-2D985B275C3C}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Transformalize.Transform.CSharp.Autofac.Shared", "src\Transformalize.Transform.CSharp.Autofac.Shared\Transformalize.Transform.CSharp.Autofac.Shared.shproj", "{EEDBFD4D-2E62-415D-8227-72A9ED31C6EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transformalize.Transform.CSharp.Autofac.Standard.20", "src\Transformalize.Transform.CSharp.Autofac.Standard.20\Transformalize.Transform.CSharp.Autofac.Standard.20.csproj", "{1017FE18-3FCC-423C-9612-B56CEF932780}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transformalize.Transform.CSharp.Autofac.Standard.21", "src\Transformalize.Transform.CSharp.Autofac.Standard.21\Transformalize.Transform.CSharp.Autofac.Standard.21.csproj", "{FECF11FF-6A8A-416B-826E-B830E213F3A8}"
+EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\Transformalize.Transform.CSharp.Autofac.Shared\Transformalize.Transform.CSharp.Autofac.Shared.projitems*{1017fe18-3fcc-423c-9612-b56cef932780}*SharedItemsImports = 5
+		src\DynamicMethodHelper.Shared\DynamicMethodHelper.Shared.projitems*{4ed1e259-756a-40b8-9800-f563b59e0206}*SharedItemsImports = 4
+		src\Transformalize.Transform.CSharp.Shared\Transformalize.Transform.CSharp.Shared.projitems*{4ed1e259-756a-40b8-9800-f563b59e0206}*SharedItemsImports = 4
+		src\Transformalize.Transform.CSharp.Shared\Transformalize.Transform.CSharp.Shared.projitems*{bd5a1629-156c-4616-9ff7-9a2347db6b49}*SharedItemsImports = 13
+		src\DynamicMethodHelper.Shared\DynamicMethodHelper.Shared.projitems*{bf304cd0-4ad3-4e6d-b2ea-8b1057097481}*SharedItemsImports = 5
+		src\Transformalize.Transform.CSharp.Shared\Transformalize.Transform.CSharp.Shared.projitems*{bf304cd0-4ad3-4e6d-b2ea-8b1057097481}*SharedItemsImports = 5
+		src\Transformalize.Transform.CSharp.Autofac.Shared\Transformalize.Transform.CSharp.Autofac.Shared.projitems*{cd3477b9-14e5-4ea3-90b0-ca9299bcae73}*SharedItemsImports = 4
+		src\DynamicMethodHelper.Shared\DynamicMethodHelper.Shared.projitems*{d05b1a34-2dbc-44e0-914a-2d985b275c3c}*SharedItemsImports = 13
+		src\Transformalize.Transform.CSharp.Autofac.Shared\Transformalize.Transform.CSharp.Autofac.Shared.projitems*{eedbfd4d-2e62-415d-8227-72a9ed31c6ef}*SharedItemsImports = 13
+		src\Transformalize.Transform.CSharp.Shared\Transformalize.Transform.CSharp.Shared.projitems*{f8a1d236-618f-49af-8c98-e31ead7c260f}*SharedItemsImports = 5
+		src\Transformalize.Transform.CSharp.Autofac.Shared\Transformalize.Transform.CSharp.Autofac.Shared.projitems*{fecf11ff-6a8a-416b-826e-b830e213f3a8}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,14 +76,42 @@ Global
 		{4DCDC34D-E2E2-41B9-8290-A5588B50EBC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DCDC34D-E2E2-41B9-8290-A5588B50EBC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DCDC34D-E2E2-41B9-8290-A5588B50EBC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF304CD0-4AD3-4E6D-B2EA-8B1057097481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF304CD0-4AD3-4E6D-B2EA-8B1057097481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF304CD0-4AD3-4E6D-B2EA-8B1057097481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF304CD0-4AD3-4E6D-B2EA-8B1057097481}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8A1D236-618F-49AF-8C98-E31EAD7C260F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8A1D236-618F-49AF-8C98-E31EAD7C260F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8A1D236-618F-49AF-8C98-E31EAD7C260F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8A1D236-618F-49AF-8C98-E31EAD7C260F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1017FE18-3FCC-423C-9612-B56CEF932780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1017FE18-3FCC-423C-9612-B56CEF932780}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1017FE18-3FCC-423C-9612-B56CEF932780}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1017FE18-3FCC-423C-9612-B56CEF932780}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FECF11FF-6A8A-416B-826E-B830E213F3A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FECF11FF-6A8A-416B-826E-B830E213F3A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FECF11FF-6A8A-416B-826E-B830E213F3A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FECF11FF-6A8A-416B-826E-B830E213F3A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{4ED1E259-756A-40B8-9800-F563B59E0206} = {84E47074-65B9-45D5-8243-1DB21052969D}
+		{CD3477B9-14E5-4EA3-90B0-CA9299BCAE73} = {37E76E00-8B60-42FC-BDCB-1D5AF6427359}
 		{72D5419A-55D9-4D31-92F6-827F8CCB81A8} = {C4563C88-9C80-4BD0-949E-AA64F111957E}
+		{BD5A1629-156C-4616-9FF7-9A2347DB6B49} = {84E47074-65B9-45D5-8243-1DB21052969D}
+		{BF304CD0-4AD3-4E6D-B2EA-8B1057097481} = {84E47074-65B9-45D5-8243-1DB21052969D}
+		{F8A1D236-618F-49AF-8C98-E31EAD7C260F} = {84E47074-65B9-45D5-8243-1DB21052969D}
+		{D05B1A34-2DBC-44E0-914A-2D985B275C3C} = {84E47074-65B9-45D5-8243-1DB21052969D}
+		{EEDBFD4D-2E62-415D-8227-72A9ED31C6EF} = {37E76E00-8B60-42FC-BDCB-1D5AF6427359}
+		{1017FE18-3FCC-423C-9612-B56CEF932780} = {37E76E00-8B60-42FC-BDCB-1D5AF6427359}
+		{FECF11FF-6A8A-416B-826E-B830E213F3A8} = {37E76E00-8B60-42FC-BDCB-1D5AF6427359}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {960FC2FA-8CAD-47A3-8A4E-4173AE406E71}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal

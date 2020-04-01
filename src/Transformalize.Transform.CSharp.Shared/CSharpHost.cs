@@ -21,6 +21,7 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Reflection.Emit;
 using Transformalize.Contracts;
 
 namespace Transformalize.Transforms.CSharp {
@@ -64,7 +65,11 @@ namespace Transformalize.Transforms.CSharp {
             var assembly = Assembly.LoadFile(outputAssembly);
             if (Cache.TryAdd(_context.Process.Name, new ConcurrentDictionary<string, UserCodeInvoker>())) {
                foreach (var method in assembly.GetType(_className).GetMethods(BindingFlags.Static | BindingFlags.Public)) {
+#if NETS20
+                  Cache[_context.Process.Name].TryAdd(method.Name, (UserCodeInvoker) Delegate.CreateDelegate(typeof(UserCodeInvoker), method));
+#else
                   Cache[_context.Process.Name].TryAdd(method.Name, (UserCodeInvoker)DynamicMethodHelper.ConvertFrom(method).CreateDelegate(typeof(UserCodeInvoker)));
+#endif
                }
                return true;
             }
@@ -97,10 +102,14 @@ namespace Transformalize.Transforms.CSharp {
             } else {
                timer.Stop();
                _context.Info($"Compiled user's code in {timer.Elapsed}.");
-               
+
                if (Cache.TryAdd(_context.Process.Name, new ConcurrentDictionary<string, UserCodeInvoker>())) {
                   foreach (var method in result.CompiledAssembly.GetType(_className).GetMethods(BindingFlags.Static | BindingFlags.Public)) {
+#if NETS20
+                     Cache[_context.Process.Name].TryAdd(method.Name, (UserCodeInvoker)Delegate.CreateDelegate(typeof(UserCodeInvoker), method));
+#else
                      Cache[_context.Process.Name].TryAdd(method.Name, (UserCodeInvoker)DynamicMethodHelper.ConvertFrom(method).CreateDelegate(typeof(UserCodeInvoker)));
+#endif
                   }
                   _context.Warn("This process is susceptible to C# code related memory leak.");
                   return true;
