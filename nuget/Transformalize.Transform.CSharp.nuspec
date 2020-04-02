@@ -2,14 +2,14 @@
 <package>
    <metadata>
       <id>Transformalize.Transform.CSharp</id>
-      <version>0.6.28-beta</version>
+      <version>0.6.29-beta</version>
       <title>Transformalize Transform using C#</title>
       <authors>Dale Newman</authors>
       <owners>Dale Newman</owners>
       <projectUrl>https://github.com/dalenewman/Transformalize.Transform.CSharp</projectUrl>
       <requireLicenseAcceptance>false</requireLicenseAcceptance>
       <description>Transformalize Transform using C#</description>
-      <releaseNotes>added .net standard targets</releaseNotes>
+      <releaseNotes>adjusted dynamic compilation for .net standard targets</releaseNotes>
       <copyright>Copyright 2018-2020</copyright>
       <tags>etl</tags>
       <dependencies>
@@ -19,10 +19,12 @@
          <group targetFramework="netstandard2.0">
             <dependency id="Transformalize" version="0.6.28-beta" />
             <dependency id="System.CodeDom" version="4.7.0" />
+            <dependency id="Microsoft.CodeAnalysis.CSharp" version="3.5.0" />
          </group>
          <group targetFramework="netstandard2.1">
             <dependency id="Transformalize" version="0.6.28-beta" />
             <dependency id="System.CodeDom" version="4.7.0" />
+            <dependency id="Microsoft.CodeAnalysis.CSharp" version="3.5.0" />
          </group>
       </dependencies>
    </metadata>

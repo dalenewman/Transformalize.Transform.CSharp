@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Transformalize.Transforms.CSharp</RootNamespace>
     <AssemblyName>Transformalize.Transform.CSharp</AssemblyName>
-    <Version>0.6.28</Version>
+    <Version>0.6.29</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
