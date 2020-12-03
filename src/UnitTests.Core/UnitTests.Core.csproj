@@ -16,9 +16,8 @@
     <PackageReference Include="MSTest.TestFramework" Version="2.1.1" />
     <PackageReference Include="coverlet.collector" Version="1.2.0" />
     <PackageReference Include="System.CodeDom" Version="4.7.0" />
-    <PackageReference Include="Transformalize.Container.Autofac" Version="0.6.28-beta" />
-    <PackageReference Include="Transformalize.Provider.Bogus.Autofac" Version="0.6.28-beta" />
-    <PackageReference Include="Transformalize.Provider.Console" Version="0.6.28-beta" />
+    <PackageReference Include="Transformalize.Provider.Bogus.Autofac" Version="0.8.29-beta" />
+    <PackageReference Include="Transformalize.Provider.Console.Autofac" Version="0.8.29-beta" />
   </ItemGroup>
 
   <ItemGroup>
