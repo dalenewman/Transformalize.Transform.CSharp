@@ -26,7 +26,7 @@ using Transformalize.Providers.Bogus.Autofac;
 using Transformalize.Providers.Console;
 using Transformalize.Transforms.CSharp.Autofac;
 
-namespace UnitTests {
+namespace Test {
 
    [TestClass]
    public class Bogus {

@@ -25,7 +25,7 @@ using Transformalize.Contracts;
 using Transformalize.Providers.Console;
 using Transformalize.Transforms.CSharp.Autofac;
 
-namespace UnitTests {
+namespace Test {
 
    [TestClass]
    public class Test {
